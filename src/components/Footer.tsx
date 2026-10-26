@@ -19,8 +19,8 @@ export default function Footer() {
               src={logo}
               alt={`${site.business.name} logo`}
               className="mb-3 h-14 w-auto"
-              width={108}
-              height={72}
+              width={1345}
+              height={678}
               onError={() => setImgFailed(true)}
             />
           ) : (
