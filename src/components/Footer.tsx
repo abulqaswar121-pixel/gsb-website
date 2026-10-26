@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { site } from "../config/site";
-import logo from "../assets/gsb-logo.jpg";
+import logo from "../assets/gsb-logo.png";
 import { MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "./icons";
 
 export default function Footer() {
@@ -18,7 +18,7 @@ export default function Footer() {
             <img
               src={logo}
               alt={`${site.business.name} logo`}
-              className="mb-3 h-12 w-auto rounded-md"
+              className="mb-3 h-12 w-auto"
               width={108}
               height={72}
               onError={() => setImgFailed(true)}
