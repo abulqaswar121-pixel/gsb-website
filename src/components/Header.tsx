@@ -16,7 +16,7 @@ function Logo() {
         <img
           src={logo}
           alt={`${site.business.name} logo`}
-          className="h-11 w-auto md:h-[54px]"
+          className="h-14 w-auto md:h-[68px]"
           width={108}
           height={72}
           onError={() => setImgFailed(true)}
