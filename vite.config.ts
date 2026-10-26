@@ -1,15 +1,25 @@
-// @lovable.dev/vite-tanstack-config already includes the following — do NOT add them manually
-// or the app will break with duplicate plugins:
-//   - TanStack devtools (dev-only, first), tanstackStart, viteReact, tailwindcss, tsConfigPaths,
-//     nitro (build-only using cloudflare as a default target), VITE_* env injection, @ path alias,
-//     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
-// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
+// Plain Vite + React SPA — standard layout used by Lovable.
+// `host` + `allowedHosts` are enabled so the dev server and preview work inside
+// hosted sandboxes (Lovable's preview and the Arena live preview proxy).
 export default defineConfig({
-  tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
+  plugins: [react()],
+  server: {
+    host: "0.0.0.0",
+    port: 8080,
+    strictPort: false,
+    allowedHosts: true,
+  },
+  preview: {
+    host: "0.0.0.0",
+    port: 8080,
+    strictPort: false,
+    allowedHosts: true,
+  },
+  build: {
+    outDir: "dist",
+    sourcemap: false,
   },
 });

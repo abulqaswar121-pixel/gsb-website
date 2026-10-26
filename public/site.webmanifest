@@ -1,0 +1,21 @@
+{
+  "name": "GSB Educational Services Limited",
+  "short_name": "GSB",
+  "description": "Education consulting, overseas admissions, test prep, language training and e-learning in Umuahia, Abia State.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A2150",
+  "theme_color": "#0A2150",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/gsb-logo.jpg",
+      "sizes": "1080x720",
+      "type": "image/jpeg"
+    }
+  ]
+}

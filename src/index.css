@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   GSB — global base styles and custom components on top of Tailwind tokens
+   Brand colours are mirrored in tailwind.config.js
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-extrabold text-navy;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+
+  ::selection {
+    @apply bg-brand-blue text-white;
+  }
+
+  :focus-visible {
+    outline: 3px solid #2f63bd;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-5;
+  }
+
+  .lead {
+    @apply text-[1.08rem] text-muted;
+  }
+
+  .tagline-serif {
+    @apply font-serif italic;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-6 py-3 text-base font-bold leading-tight transition-all duration-200;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-primary {
+    @apply bg-navy text-white hover:bg-brand-blue hover:shadow-soft;
+  }
+  .btn-blue {
+    @apply bg-brand-blue text-white hover:bg-brand-blue-hover hover:shadow-soft;
+  }
+  .btn-outline {
+    @apply border-2 border-navy bg-transparent text-navy hover:bg-navy hover:text-white;
+  }
+  .btn-on-navy {
+    @apply bg-white text-navy hover:bg-brand-silver;
+  }
+  .btn-outline-on-navy {
+    @apply border-2 border-white bg-transparent text-white hover:bg-white hover:text-navy;
+  }
+  .btn-whatsapp {
+    @apply bg-whatsapp text-white hover:bg-whatsapp-dark hover:shadow-soft;
+  }
+  .btn-sm {
+    @apply min-h-10 px-4 py-2 text-sm;
+  }
+
+  /* Cards */
+  .card {
+    @apply flex flex-col overflow-hidden rounded-xl border border-brand-silver bg-white shadow-card transition-all duration-300;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    @apply shadow-soft;
+  }
+
+  /* Eyebrow / badge */
+  .eyebrow {
+    @apply mb-2 inline-block text-xs font-extrabold uppercase tracking-[0.14em] text-brand-blue;
+  }
+  .sample-badge {
+    @apply inline-block rounded-full border border-[#e7c48f] bg-[#fff4e0] px-2.5 py-1 text-[0.72rem] font-extrabold uppercase tracking-wider text-[#8a4b00];
+  }
+
+  /* Form fields */
+  .field-label {
+    @apply mb-1.5 block text-sm font-bold text-ink;
+  }
+  .field-input {
+    @apply min-h-12 w-full rounded-lg border-[1.5px] border-brand-silver bg-white px-3.5 py-3 text-ink transition-shadow;
+  }
+  .field-input:focus {
+    @apply border-brand-blue outline-none;
+    box-shadow: 0 0 0 3px rgba(30, 79, 163, 0.18);
+  }
+  .field-error {
+    @apply mt-1 text-sm font-semibold text-[#b42318];
+  }
+
+  /* Link with animated arrow */
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 font-bold text-brand-blue no-underline;
+  }
+  .link-arrow::after {
+    content: "→";
+    transition: transform 0.18s ease;
+  }
+  .link-arrow:hover::after {
+    transform: translateX(4px);
+  }
+
+  /* Marquee track pause on hover */
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Thin custom scrollbar for chat */
+  .chat-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #c9ced6 transparent;
+  }
+  .chat-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .chat-scroll::-webkit-scrollbar-thumb {
+    background: #c9ced6;
+    border-radius: 999px;
+  }
+}
+
+/* Keep anchored section headings clear of the sticky header */
+section[id] {
+  scroll-margin-top: 92px;
+}
+
+/* Reveal-on-scroll (toggled by the Reveal component) */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(22px);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal-hidden {
+    opacity: 1;
+    transform: none;
+  }
+}
