@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { site } from "../config/site";
-import logo from "../assets/gsb-logo.png";
+import logo from "../assets/gsb-letters-logo-trimmed.png";
 import { CloseIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 
 function Logo() {
@@ -16,9 +16,9 @@ function Logo() {
         <img
           src={logo}
           alt={`${site.business.name} logo`}
-          className="h-14 w-auto md:h-[68px]"
-          width={1345}
-          height={678}
+           className="h-auto w-[132px] md:w-[154px]"
+           width={1391}
+           height={674}
           onError={() => setImgFailed(true)}
         />
       )}
@@ -101,9 +101,13 @@ export default function Header() {
           scrolled ? "shadow-[0_8px_24px_rgba(6,21,52,0.45)]" : ""
         }`}
       >
-        <div className="container-site flex min-h-[68px] items-center justify-between gap-4 py-2 md:min-h-[78px]">
+         <div className="container-site flex min-h-[80px] items-center justify-between gap-3 py-2 md:min-h-[94px]">
           <Logo />
 
+           <div className="ml-auto flex shrink-0 items-center gap-3 md:hidden">
+             <Link to="/contact#enquiry" className="btn btn-on-navy btn-sm">
+               Enquire
+             </Link>
           <button
             type="button"
             className="flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-lg border-2 border-white/35 md:hidden"
@@ -122,6 +126,7 @@ export default function Header() {
               </>
             )}
           </button>
+           </div>
 
           <nav
             id="primary-nav"
