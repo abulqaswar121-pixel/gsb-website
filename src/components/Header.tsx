@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { site } from "../config/site";
-import logo from "../assets/gsb-logo.jpg";
+import logo from "../assets/gsb-logo.png";
 import { CloseIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 
 function Logo() {
@@ -16,7 +16,7 @@ function Logo() {
         <img
           src={logo}
           alt={`${site.business.name} logo`}
-          className="h-11 w-auto rounded-md md:h-[54px]"
+          className="h-11 w-auto md:h-[54px]"
           width={108}
           height={72}
           onError={() => setImgFailed(true)}
@@ -155,6 +155,24 @@ export default function Header() {
                 >
                   Enquire Now
                 </Link>
+              </li>
+              <li className="mt-2 md:hidden">
+                <a
+                  href={site.contact.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-whatsapp btn-sm w-full"
+                >
+                  <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
+                </a>
+              </li>
+              <li className="mt-2 md:hidden">
+                <a
+                  href={`tel:${site.contact.phoneTel}`}
+                  className="btn btn-outline-on-navy btn-sm w-full"
+                >
+                  <PhoneIcon className="h-4 w-4" /> Call {site.contact.phone}
+                </a>
               </li>
             </ul>
           </nav>
