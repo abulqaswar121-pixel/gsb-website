@@ -17,8 +17,8 @@ function Logo() {
           src={logo}
           alt={`${site.business.name} logo`}
           className="h-14 w-auto md:h-[68px]"
-          width={108}
-          height={72}
+          width={1345}
+          height={678}
           onError={() => setImgFailed(true)}
         />
       )}
